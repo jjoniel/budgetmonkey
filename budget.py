@@ -16,7 +16,7 @@ USERS = {}
 USER_SECRETS = {}
 USER = "JOJO"
 u_list = []
-locale.setlocale(locale.LC_ALL, "en_US")
+locale.setlocale(locale.LC_ALL, "en_US.UTF-8")
 
 app = Flask(__name__)
 
@@ -65,7 +65,7 @@ def extract_all_info():
         lines = access_entities.readlines()
         for line in lines:
             entities.add(f.decrypt(line.strip().encode()).decode())
-    
+
     with open(os.path.join("data/", USER_SECRETS[USER]), "r", encoding="utf-8") as u_file:
         u_info = u_file.readlines()
         if len(u_info) >= 1:
@@ -89,7 +89,7 @@ def adjust_entity(string):
             pass
         else:
             updated += e
-    
+
     return updated
 
 
@@ -99,7 +99,7 @@ def save_all_info():
             login_str = u + "," + p + "," + USER_SECRETS[u]
             save_logins.write(encrypt_to_file(login_str))
         save_logins.close()
-    
+
     with open(os.path.join("data/", USER_SECRETS[USER]), "w", encoding="utf-8") as u_file:
         total = 0
         for t in u_list:
@@ -108,7 +108,7 @@ def save_all_info():
         for item in u_list:
             u_file.write(encrypt_to_file(item.csv()))
         u_file.close()
-    
+
     with open(os.path.join("data/", "entities.txt"), "w", encoding="utf-8") as save_entities:
         for e in entities:
             save_entities.write(encrypt_to_file(e))
@@ -130,5 +130,5 @@ def add_expense(date, entity, money):
 
 if __name__ == "__main__":
     extract_all_info()
-    app.run(host='0.0.0.0', port=8080, debug=False)
-    
+    app.run(host='0.0.0.0', port=5000, debug=False)
+
