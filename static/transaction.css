@@ -4,10 +4,10 @@
 
 body {
     font-family: 'DM Mono', monospace;
-    color: #2D2A32;
+    color: #ffffff;
     margin: 0;
     font-size: 1.1em;
-    background-color: #FAFDF6;
+    background-color: #614e41;
 }
 
 @media (max-width: 760px) {
@@ -26,6 +26,10 @@ body {
 
     .remove-holder {
         display: none
+    }
+
+    .popout {
+        color: inherit; /* This will make the color of "action" the same as "trans" */
     }
 
     form {
@@ -124,8 +128,10 @@ body {
         font-family: 'DM Sans', sans-serif;
         font-weight: 200;
         font-size: 4em;
-        margin: 10% 3% 5%;
+        margin: 8% 0% 0%;
         white-space: nowrap;
+        text-align: center; /* Center the heading */
+        width: 100%; /* Ensure it takes the full width */
     }
 
     .page-body {
@@ -170,7 +176,7 @@ body {
 
 @media (hover: hover) and (pointer: fine) {
     hr:hover{
-        border: 5px solid #F92A82;
+        border: 5px solid #ffffff;
     }
 
     #submit:hover {
@@ -235,7 +241,7 @@ form {
     margin: 0;
     font-size: 1.5em;
     text-align: center;
-    background-color: #EAE151; 
+    background-color: #28221f;
     position: fixed;
     top: 0;
     left: 0;
@@ -243,7 +249,7 @@ form {
 }
 
 .popout {
-    color: #F92A82;
+    color: #ffffff;
 }
 
 #logo {
@@ -259,7 +265,7 @@ input {
     transition: letter-spacing .1s;
     cursor: text;
     color: #2D2A32;
-    caret-color: #F92A82;
+    caret-color: #ffffff;
 }
 
 table {
@@ -270,7 +276,7 @@ table {
 }
 
 th {
-    background-color: #EEEFA8;
+    background-color: #28221f;
     -webkit-font-smoothing: antialiased;
     font-weight: 400;
 }
@@ -338,10 +344,10 @@ hr {
 #submit {
     font-size: 1em; 
     border-radius: 50px; 
-    color: #2D2A32; 
+    color: #ffffff;
     font-family: 'DM Sans';
     font-weight: 200;
-    border: #F92A82 solid 2px;
+    border: #28221f solid 2px;
     cursor: pointer;
     transition: color .1s, background-color .1s;
     margin-bottom: 2%;
@@ -426,10 +432,10 @@ hr {
     padding: 1% 2%; 
     font-size: 1em; 
     border-radius: 50px; 
-    color: #2D2A32; 
+    color: #ffffff;
     font-family: 'DM Sans';
     font-weight: 200;
-    border: #F92A82 solid 2px;
+    border: #28221f solid 2px;
     cursor: pointer;
     margin-bottom: 2%;
 }

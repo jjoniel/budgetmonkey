@@ -1,12 +1,10 @@
-
 # standard imports
 import os
-import time
 import locale
 from datetime import date, datetime
 
 # external imports
-from flask import Flask, request, render_template, g
+from flask import Flask, request, render_template, g, redirect
 from cryptography.fernet import Fernet
 
 # local imports
@@ -27,20 +25,10 @@ descriptions = set()
 
 @app.route("/", methods=["GET"])
 def home():
-    """
-    This method renders the main landing page.
-
-    """
-    return render_template("home.html")
+    return redirect("/add_transaction")
 
 @app.route("/add_transaction", methods=["GET"])
 def add_transaction():
-    """
-    This method processes and renders a web form allowing users to
-    input a transaction that they completed and the purchases 
-    associated with it.
-
-    """
     ents = [e.upper() for e in entities]
     ents.sort()
 
@@ -48,12 +36,6 @@ def add_transaction():
 
 @app.route("/add_transaction", methods=["POST"])
 def process_transaction():
-    """
-    This method processes and renders a web form allowing users to
-    input a transaction that they completed and the purchases 
-    associated with it.
-
-    """
     u_entities = request.form.getlist("entity[]")
     dates = request.form.getlist("date[]")
     total_prices = request.form.getlist("total_price[]")
@@ -78,7 +60,7 @@ def extract_all_info():
             USERS[u] = p
             USER_SECRETS[u] = s
         access_logins.close()
-    
+
     with open(os.path.join("data/", "entities.txt"), "r", encoding="utf-8") as access_entities:
         lines = access_entities.readlines()
         for line in lines:
