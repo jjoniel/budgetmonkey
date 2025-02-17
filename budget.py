@@ -16,6 +16,7 @@ USERS = {}
 USER_SECRETS = {}
 USER = "JOJO"
 u_list = []
+locale.setlocale(locale.LC_ALL, "en_US")
 
 app = Flask(__name__)
 
