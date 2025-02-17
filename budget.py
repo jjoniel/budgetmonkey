@@ -1,6 +1,6 @@
 # standard imports
 import os
-import locale
+#import locale
 from datetime import date, datetime
 
 # external imports
@@ -16,7 +16,7 @@ USERS = {}
 USER_SECRETS = {}
 USER = "JOJO"
 u_list = []
-locale.setlocale(locale.LC_ALL, "en_US")
+#locale.setlocale(locale.LC_ALL, "en_US")
 
 app = Flask(__name__)
 
@@ -76,7 +76,7 @@ def extract_all_info():
         else:
             u_entries = 0
             u_amount = 0
-        print("WELCOME", USER, "YOU HAVE", u_entries, "TRANSACTIONS ENTERED AND A BALANCE OF", locale.currency(u_amount))
+        #print("WELCOME", USER, "YOU HAVE", u_entries, "TRANSACTIONS ENTERED AND A BALANCE OF", locale.currency(u_amount))
         u_file.close()
 
 def adjust_entity(string):
