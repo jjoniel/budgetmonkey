@@ -29,7 +29,7 @@ body {
     }
 
     .popout {
-        color: #F98948; /* This will make the color of "action" the same as "trans" */
+        color: #FCA311; /* This will make the color of "action" the same as "trans" */
     }
 
     form {
@@ -182,24 +182,27 @@ body {
     #submit:hover {
         color:#F9EA9A;
         letter-spacing: 0;
-        background-color: #F98948; 
+        background-color: #FCA311; 
+        color: #28221f;
     }
 
     #add-row-btn:hover {
         color:#F9EA9A;
         letter-spacing: 0;
-        background-color: #F98948; 
+        background-color: #FCA311; 
+        color: #28221f;
     }
 
     .autocomplete-active {
-        background-color: #F98948 !important;
+        background-color: #FCA311 !important;
         color: #F9EA9A;
     }
 
     .modal-buttons button:hover {
         color:#F9EA9A;
         transition: color .1s, background-color .1s;
-        background-color: #F98948; 
+        background-color: #FCA311; 
+        color: #28221f;
     }
 
     input:hover, input:focus {
@@ -208,7 +211,7 @@ body {
 
     .flatpickr-months .flatpickr-prev-month:hover svg,
     .flatpickr-months .flatpickr-next-month:hover svg {
-        fill:#F98948; 
+        fill:#FCA311; 
     }
 }
 
@@ -216,19 +219,22 @@ body {
     #add-row-btn:active {
         color:#F9EA9A;
         letter-spacing: 0;
-        background-color: #F98948; 
+        background-color: #FCA311; 
+        color: #28221f;
     }
 
     #submit:active {
         color:#F9EA9A;
         letter-spacing: 0;
-        background-color: #F98948; 
+        background-color: #FCA311; 
+        color: #28221f;
     }
 
     .submit-ready {
         color:#F9EA9A !important;
         letter-spacing: 0;
-        background-color: #F98948; 
+        background-color: #FCA311; 
+        color: #28221f;
     }
 }
 
@@ -253,8 +259,12 @@ a {
     text-decoration: none;
 }
 
+a:hover {
+    color: #FCA311;
+}
+
 .popout {
-    color: #F98948;
+    color: #FCA311;
 }
 
 #logo {
@@ -333,7 +343,7 @@ th, td {
 ::placeholder {
     font-family: 'DM Mono', monospace;
     font-size: 1.05em;
-    color: #999;
+    color: #EFEBCE;
 }
 
 input:focus {
@@ -428,7 +438,7 @@ hr {
     border-radius: 50px; 
     font-family: 'DM Sans';
     font-weight: 200;
-    border: #F98948 solid 2px;
+    border: #FCA311 solid 2px;
     color: #28221f;
     cursor: pointer;
 }
@@ -447,17 +457,20 @@ hr {
 }
 
 .flatpickr-day.selected {
-    background-color: #F98948; 
+    background-color: #FCA311; 
+    color: #28221f;
     border: none;
 }
 
 .flatpickr-day.nextMonthDay.selected {
-    background-color: #F98948; 
+    background-color: #FCA311; 
+    color: #28221f;
     border: none;
 }
 
 .flatpickr-day.selected:hover {
-    background-color: #F98948; 
+    background-color: #FCA311; 
+    color: #28221f;
     font-size: larger;
     border: none;
 }
@@ -472,7 +485,8 @@ hr {
 }
 
 .flatpickr-day.today.selected {
-    background-color: #F98948; 
+    background-color: #FCA311; 
+    color: #28221f;
     border: none;
 }
 

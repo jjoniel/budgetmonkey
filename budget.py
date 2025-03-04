@@ -125,7 +125,7 @@ def encrypt_to_file(text):
 def add_expense(date, vendor, money):
     vendor = adjust_vendor(vendor.strip())
     entities.add(vendor)
-    u_list.append(Transaction(-1*float(money), vendor, datetime.strptime(date, "%m/%d/%y").date()))
+    u_list.append(Transaction(float(money), vendor, datetime.strptime(date, "%m/%d/%y").date()))
     print("ADDED EXPENSE: ", u_list[-1].datestr())
 
 if __name__ == "__main__":
