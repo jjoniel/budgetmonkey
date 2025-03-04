@@ -4,10 +4,10 @@
 
 body {
     font-family: 'DM Mono', monospace;
-    color: #ffffff;
+    color: #F9EA9A;
     margin: 0;
     font-size: 1.1em;
-    background-color: #614e41;
+    background-color: #684E32;
 }
 
 @media (max-width: 760px) {
@@ -29,7 +29,7 @@ body {
     }
 
     .popout {
-        color: inherit; /* This will make the color of "action" the same as "trans" */
+        color: #F98948; /* This will make the color of "action" the same as "trans" */
     }
 
     form {
@@ -180,26 +180,26 @@ body {
     }
 
     #submit:hover {
-        color:#FAFDF6;
+        color:#F9EA9A;
         letter-spacing: 0;
-        background-color: #F92A82; 
+        background-color: #F98948; 
     }
 
     #add-row-btn:hover {
-        color:#FAFDF6;
+        color:#F9EA9A;
         letter-spacing: 0;
-        background-color: #F92A82; 
+        background-color: #F98948; 
     }
 
     .autocomplete-active {
-        background-color: #F92A82 !important;
+        background-color: #F98948 !important;
         color: #ffffff;
     }
 
     .modal-buttons button:hover {
-        color:#FAFDF6;
+        color:#F9EA9A;
         transition: color .1s, background-color .1s;
-        background-color: #F92A82; 
+        background-color: #F98948; 
     }
 
     input:hover, input:focus {
@@ -208,27 +208,27 @@ body {
 
     .flatpickr-months .flatpickr-prev-month:hover svg,
     .flatpickr-months .flatpickr-next-month:hover svg {
-        fill:#F92A82; 
+        fill:#F98948; 
     }
 }
 
 @media (hover: none) and (pointer: coarse) {
     #add-row-btn:active {
-        color:#FAFDF6;
+        color:#F9EA9A;
         letter-spacing: 0;
-        background-color: #F92A82; 
+        background-color: #F98948; 
     }
 
     #submit:active {
-        color:#FAFDF6;
+        color:#F9EA9A;
         letter-spacing: 0;
-        background-color: #F92A82; 
+        background-color: #F98948; 
     }
 
     .submit-ready {
-        color:#FAFDF6 !important;
+        color:#F9EA9A !important;
         letter-spacing: 0;
-        background-color: #F92A82; 
+        background-color: #F98948; 
     }
 }
 
@@ -249,7 +249,7 @@ form {
 }
 
 .popout {
-    color: #ffffff;
+    color: #F9EA9A;
 }
 
 #logo {
@@ -265,7 +265,7 @@ input {
     transition: letter-spacing .1s;
     cursor: text;
     color: #2D2A32;
-    caret-color: #ffffff;
+    caret-color: #F9EA9A;
 }
 
 table {
@@ -344,7 +344,7 @@ hr {
 #submit {
     font-size: 1em; 
     border-radius: 50px; 
-    color: #ffffff;
+    color: #F9EA9A;
     font-family: 'DM Sans';
     font-weight: 200;
     border: #28221f solid 2px;
@@ -379,13 +379,13 @@ hr {
 .autocomplete-items div {
     padding: 10px;
     cursor: pointer;
-    background-color: #fff;
+    background-color: #F9EA9A;
     border-bottom: 1px solid #d4d4d4;
     will-change: transform;
 }
 
 .autocomplete-items div:hover {
-    background-color: #e9e9e9;
+    background-color: #F9EA9A;
 }
 
 #customModal, 
@@ -405,7 +405,7 @@ hr {
 }
 
 .modal-content {
-    background-color: #fff;
+    background-color: #F9EA9A;
     color: #000000;
     padding: 20px;
     border-radius: 5px;
@@ -423,7 +423,7 @@ hr {
     border-radius: 50px; 
     font-family: 'DM Sans';
     font-weight: 200;
-    border: #F92A82 solid 2px;
+    border: #F98948 solid 2px;
     color: #2D2A32;
     cursor: pointer;
 }
@@ -442,17 +442,17 @@ hr {
 }
 
 .flatpickr-day.selected {
-    background-color: #F92A82; 
+    background-color: #F98948; 
     border: none;
 }
 
 .flatpickr-day.nextMonthDay.selected {
-    background-color: #F92A82; 
+    background-color: #F98948; 
     border: none;
 }
 
 .flatpickr-day.selected:hover {
-    background-color: #F92A82; 
+    background-color: #F98948; 
     font-size: larger;
     border: none;
 }
@@ -463,11 +463,11 @@ hr {
 
 .flatpickr-day.today {
     border: none;
-    background-color: #EEEFA8;
+    background-color: #F9EA9A;
 }
 
 .flatpickr-day.today.selected {
-    background-color: #F92A82; 
+    background-color: #F98948; 
     border: none;
 }
 
@@ -508,7 +508,7 @@ strong {
     text-align: center;
     padding: 10px;
     z-index: 9999;
-    background-color: #fff;
+    background-color: #F9EA9A;
     padding: 20px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     font-size: 1.1em;
