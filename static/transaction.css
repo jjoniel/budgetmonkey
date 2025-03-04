@@ -406,6 +406,7 @@ hr {
 
 .modal-content {
     background-color: #fff;
+    color: #000000;
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
