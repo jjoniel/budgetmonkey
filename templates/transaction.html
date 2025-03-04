@@ -25,7 +25,7 @@
     <link rel="stylesheet" href="/static/transaction.css">
 
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
-    <meta name="theme-color" content="#5D3A001">
+    <meta name="theme-color" content="#EAE151">
 
 
 </head>
@@ -35,7 +35,7 @@
     <p>please keep your device vertical for the best experience</p>
 </div>
 
-<div class="page-header"><span id="logo">budgetmonkey</span></div>
+<div class="page-header"><span id="logo"><a href="../">budgetmonkey</a></span></div>
 
 <div class="page-body">
     <br>
@@ -49,7 +49,7 @@
             <thead>
             <tr>
                 <th style="width:17%">Date</th>
-                <th style="width:31%">Entity</th>
+                <th style="width:31%">Vendor</th>
                 <th style="width:15%;">Amount</th>
                 <th style="width:24%">Category</td>
                 <th class="remove-holder" style="width:4%"></th>
@@ -62,7 +62,7 @@
                 </td>
                 <td>
                     <div class="autocomplete">
-                        <input enterkeyhint="next" type="search" class="entity" name="entity[]" placeholder="entity name"/>
+                        <input enterkeyhint="next" type="search" class="vendor" name="vendor[]" placeholder="vendor name"/>
                     </div>
                 </td>
                 <td>
@@ -148,7 +148,7 @@
                             </td>
                             <td>
                                 <div class="autocomplete">
-                                    <input enterkeyhint="enter" type="text" class="entity" name="entity[]" placeholder="entity name"/>
+                                    <input enterkeyhint="enter" type="text" class="vendor" name="vendor[]" placeholder="vendor name"/>
                                 </div>
                             </td>
                             <td>
@@ -173,9 +173,9 @@
             $('.total-price').on('blur', formatTotal);
 
             // auto completion
-            var entityElements = document.getElementsByClassName("entity");
-            for (var i = 0; i < entityElements.length; i++) {
-                autocomplete(entityElements[i], existingEntities);
+            var vendorElements = document.getElementsByClassName("vendor");
+            for (var i = 0; i < vendorElements.length; i++) {
+                autocomplete(vendorElements[i], existingEntities);
             }
             flatpickr(".date", {
                 dateFormat: "m/d/y",
@@ -185,7 +185,7 @@
         });
 
         // inital auto completion
-        autocomplete(document.getElementsByClassName("entity")[0], existingEntities);
+        autocomplete(document.getElementsByClassName("vendor")[0], existingEntities);
 
         $(".add-row-btn").on('click', function() {
             event.preventDefault();

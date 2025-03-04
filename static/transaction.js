@@ -1,7 +1,7 @@
 // first row remove button
 $(document).on('click', '.remove', function(event) {
     event.preventDefault();
-    if(document.getElementsByClassName("entity").length > 1) {
+    if(document.getElementsByClassName("vendor").length > 1) {
         $('#modalConfirm').data('targetRow', $(this).closest('tr'));
         openModal()
 
@@ -107,7 +107,7 @@ var touchCurrentX = 0;
 var initialTransform = '';
 
 $(document).on('touchstart', '.swipe', function (event) {
-    if(document.getElementsByClassName("entity").length > 1 && initialTransform === '') {
+    if(document.getElementsByClassName("vendor").length > 1 && initialTransform === '') {
         touchStartX = event.touches[0].clientX;
         touchCurrentX = touchStartX;
         initialTransform = $(this).closest('tr').css('transform');
@@ -127,7 +127,7 @@ $(document).on('touchend', '.swipe', function () {
     var distance = touchCurrentX - touchStartX;
 
     if (distance < 0 && Math.abs(distance) > $(this).closest('tr').width() / 4) {
-        if(document.getElementsByClassName("entity").length > 1) {
+        if(document.getElementsByClassName("vendor").length > 1) {
             initialTransform = '';
             $('#modalConfirm').data('targetRow', $(this).closest('tr'));
             openModal()

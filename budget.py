@@ -25,7 +25,7 @@ descriptions = set()
 
 @app.route("/", methods=["GET"])
 def home():
-    return redirect("/add_transaction")
+    return render_template("home.html")
 
 @app.route("/add_transaction", methods=["GET"])
 def add_transaction():
@@ -36,7 +36,7 @@ def add_transaction():
 
 @app.route("/add_transaction", methods=["POST"])
 def process_transaction():
-    u_entities = request.form.getlist("entity[]")
+    u_entities = request.form.getlist("vendor[]")
     dates = request.form.getlist("date[]")
     total_prices = request.form.getlist("total_price[]")
     for i in range(len(dates)):
@@ -79,7 +79,7 @@ def extract_all_info():
         #print("WELCOME", USER, "YOU HAVE", u_entries, "TRANSACTIONS ENTERED AND A BALANCE OF", locale.currency(u_amount))
         u_file.close()
 
-def adjust_entity(string):
+def adjust_vendor(string):
     string = string.upper()
     updated = ""
     for e in string:
@@ -122,10 +122,10 @@ def parse_file(user_list):
 def encrypt_to_file(text):
     return f.encrypt((text.encode())).decode() + "\n"
 
-def add_expense(date, entity, money):
-    entity = adjust_entity(entity.strip())
-    entities.add(entity)
-    u_list.append(Transaction(-1*float(money), entity, datetime.strptime(date, "%m/%d/%y").date()))
+def add_expense(date, vendor, money):
+    vendor = adjust_vendor(vendor.strip())
+    entities.add(vendor)
+    u_list.append(Transaction(-1*float(money), vendor, datetime.strptime(date, "%m/%d/%y").date()))
     print("ADDED EXPENSE: ", u_list[-1].datestr())
 
 if __name__ == "__main__":

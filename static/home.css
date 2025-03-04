@@ -4,7 +4,7 @@
 
 body {
     font-family: 'DM Mono', monospace;
-    color: #2D2A32;
+    color: #28221f;
     margin: 0;
     font-size: 1.1em;
 }
@@ -22,7 +22,7 @@ body {
     }
     .loader {
         border: 3px solid #f3f3f3;
-        border-top: 3px solid #F92A82 ;
+        border-top: 3px solid #F98948 ;
         border-radius: 50%;
         width: 10vh;
         height: 10vh;
@@ -42,7 +42,7 @@ body {
     }
     .loader {
         border: 5px solid #f3f3f3;
-        border-top: 5px solid #F92A82 ;
+        border-top: 5px solid #F98948 ;
         border-radius: 50%;
         width: 20vw;
         height: 20vw;
@@ -56,7 +56,7 @@ body {
     }
     .loader {
         border: 5px solid #f3f3f3;
-        border-top: 5px solid #F92A82 ;
+        border-top: 5px solid #F98948 ;
         border-radius: 50%;
         width: 10vw;
         height: 10vw;
@@ -67,7 +67,7 @@ body {
 @media (hover: hover) and (pointer: fine) {
     #scroll-button:hover {
         letter-spacing: 0;
-        background-color: #F92A82; 
+        background-color: #F98948; 
         animation-play-state: paused;
     }
 }
@@ -75,7 +75,7 @@ body {
 @media (hover: none) and (pointer: coarse) {
     #scroll-button:active {
         letter-spacing: 0;
-        background-color: #F92A82; 
+        background-color: #F98948; 
         animation-play-state: paused;
     }
 }
@@ -89,7 +89,7 @@ h1 {
 .content {
     width: 100%;
     height: 100vh;
-    background-color: #EAE151;
+    background-color: #684E32;
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -107,7 +107,7 @@ h1 {
     margin: 0;
     font-size: 1.5em;
     text-align: center;
-    background-color: #EAE151; 
+    background-color: #684E32; 
     position: fixed;
     top: 0;
     left: 0;
@@ -115,11 +115,11 @@ h1 {
 }
 
 .page-body {
-    background-color: #FAFDF6;
+    background-color: #F9EA9A;
 }
 
 .popout {
-    color: #EAE151;
+    color: #684E32;
     transition: letter-spacing 1s;
 }
 
@@ -130,8 +130,8 @@ h1 {
 }
 
 .start {
-    background-color: #2D2A32;
-    color: #FAFDF6;
+    background-color: #28221f;
+    color: #F9EA9A;
 }
 
 #logo {
@@ -144,12 +144,12 @@ h1 {
 #scroll-button {
     font-size: 1em; 
     border-radius: 50px; 
-    color: #2D2A32; 
+    color: #28221f; 
     background-color: transparent;
     font-family: 'DM Sans';
     font-weight: 200;
-    color:#FAFDF6;
-    border: #F92A82 solid 2px;
+    color:#F9EA9A;
+    border: #F98948 solid 2px;
     cursor: pointer;
     transition: color .1s, background-color .1s;
     margin-bottom: 2%;
