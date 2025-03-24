@@ -42,7 +42,11 @@ def process_transaction():
     for i in range(len(dates)):
         add_expense(dates[i], u_entities[i], total_prices[i])
     save_all_info()
-    return render_template("receipt.html", transactions=[u.datestr() for u in u_list])
+    # Pass 'success=True' into your render_template call
+    return render_template("receipt.html", 
+                           transactions=[u.datestr() for u in u_list],
+                           success=True)
+
 
 
 """

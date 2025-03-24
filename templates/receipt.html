@@ -44,6 +44,14 @@
             </div>
         </div>
 
+        {% if success %}
+        <script>
+        window.onload = function() {
+            alert("Submission successful!");
+        };
+        </script>
+        {% endif %}
+
         <div id="customModal">
             <div class="modal-content">
                 <p>delete row?</p>
