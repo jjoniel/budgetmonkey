@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
     <head>
-
         <title>add transaction</title>
 
         <!-- jquery -->
@@ -26,7 +25,6 @@
 
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1">
         <meta name="theme-color" content="#EAE151">
-
     </head>
     <body>
         
@@ -37,9 +35,28 @@
             <br>
             <h1>Past Trans<span class="popout">action</span>s</h1>
             
-            <div>
+            <!-- Filter and Sorting Controls -->
+            <div id="filter-sort-container">
+                <input type="text" id="filterInput" placeholder="Filter by vendor">
+                <select id="sortOptions">
+                    <option value="dateAsc">Date Ascending</option>
+                    <option value="dateDesc">Date Descending</option>
+                    <option value="vendorAsc">Vendor A-Z</option>
+                    <option value="vendorDesc">Vendor Z-A</option>
+                    <option value="netAsc">Amount Ascending</option>
+                    <option value="netDesc">Amount Descending</option>
+                </select>
+            </div>
+            
+            <!-- Transactions List -->
+            <div id="transactionList">
                 {% for t in transactions %}
-                <h4>{{t}}</h4>
+                <div class="transaction" 
+                     data-vendor="{{ t.vendor }}" 
+                     data-date="{{ t.date.isoformat() }}" 
+                     data-net="{{ t.net }}">
+                    <h4>{{ t.datestr() }}</h4>
+                </div>
                 {% endfor %}
             </div>
         </div>
@@ -70,5 +87,52 @@
                 </div>
             </div>
         </div>
+
+        <script>
+            function sortTransactions(criteria) {
+                var container = document.getElementById("transactionList");
+                var transactions = Array.from(container.getElementsByClassName("transaction"));
+                transactions.sort(function(a, b) {
+                    if (criteria === "dateAsc") {
+                        return new Date(a.getAttribute("data-date")) - new Date(b.getAttribute("data-date"));
+                    } else if (criteria === "dateDesc") {
+                        return new Date(b.getAttribute("data-date")) - new Date(a.getAttribute("data-date"));
+                    } else if (criteria === "vendorAsc") {
+                        return a.getAttribute("data-vendor").localeCompare(b.getAttribute("data-vendor"));
+                    } else if (criteria === "vendorDesc") {
+                        return b.getAttribute("data-vendor").localeCompare(a.getAttribute("data-vendor"));
+                    } else if (criteria === "netAsc") {
+                        return parseFloat(a.getAttribute("data-net")) - parseFloat(b.getAttribute("data-net"));
+                    } else if (criteria === "netDesc") {
+                        return parseFloat(b.getAttribute("data-net")) - parseFloat(a.getAttribute("data-net"));
+                    }
+                    return 0;
+                });
+                transactions.forEach(function(el) {
+                    container.appendChild(el);
+                });
+            }
+
+            function filterTransactions(query) {
+                var container = document.getElementById("transactionList");
+                var transactions = container.getElementsByClassName("transaction");
+                Array.from(transactions).forEach(function(el) {
+                    var vendor = el.getAttribute("data-vendor").toLowerCase();
+                    if (vendor.includes(query.toLowerCase())) {
+                        el.style.display = "";
+                    } else {
+                        el.style.display = "none";
+                    }
+                });
+            }
+
+            document.getElementById("sortOptions").addEventListener("change", function() {
+                sortTransactions(this.value);
+            });
+
+            document.getElementById("filterInput").addEventListener("input", function() {
+                filterTransactions(this.value);
+            });
+        </script>
     </body>
 </html>
