@@ -35,9 +35,15 @@
                     <br>
                     <br>
                     <button id="scroll-button" style="display:inline-block;">Start Tracking</button>
+                    <br>
+                    <button id="about-button" style="display:inline-block;">about</button>
                 </div>
                 <div id="seconddiv" class="content">
-                    <h1><a href="./add_transaction">start tracking your spending</a></h2>
+                    <div class="about-section">
+                        <h2>About BudgetMonkey</h2>
+                        <p>BudgetMonkey is your intelligent financial companion, designed to make personal finance management simple and intuitive. Our platform helps you track and view your spending, to gain insights into your financial habits with minimal effort.</p>
+                        <p>Whether you're looking to save for a big purchase, pay off debt, or simply understand where your money goes, BudgetMonkey provides the tools and insights you need to take control of your finances. Start your journey to better financial health today.</p>
+                    </div>
                 </div>
             </div>
         </div>
@@ -70,10 +76,15 @@
         observer.observe(fullScreenDiv);
 
         const scrollButton = document.getElementById('scroll-button');
+        const aboutButton = document.getElementById('about-button');
         const secondDiv = document.getElementById('seconddiv');
 
         scrollButton.addEventListener('click', () => {
             window.location.href = './add_transaction';
+        });
+
+        aboutButton.addEventListener('click', () => {
+            secondDiv.scrollIntoView({ behavior: 'smooth' });
         });
 
         window.addEventListener('DOMContentLoaded', function() {
