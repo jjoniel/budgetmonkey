@@ -46,7 +46,11 @@ def process_transaction():
                            transactions=u_list,
                            success=True)
 
-
+@app.route("/receipts", methods=["GET"])
+def view_receipts():
+    return render_template("receipt.html", 
+                           transactions=u_list,
+                           success=False)
 
 """
 File IO Functions
