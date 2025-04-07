@@ -27,9 +27,6 @@
         <div class="orientation-prompt">
             <p>please keep your device vertical for the best experience</p>
         </div>
-        <div class="loader-wrapper">
-            <div class="loader"></div>
-        </div>
         <div class="content-wrapper">
             <div id="topbar" class="page-header start"><span id="logo"><a href="../">budgetmonkey</a></span></div>
             <div class="page-body">
@@ -77,13 +74,6 @@
 
         scrollButton.addEventListener('click', () => {
             secondDiv.scrollIntoView({ behavior: 'smooth' });
-        });
-
-        window.addEventListener('load', function() {
-            setTimeout(function() {
-                document.querySelector('.loader-wrapper').style.display = 'none';
-                document.querySelector('.content-wrapper').style.opacity = '1';
-            }, 750);
         });
 
         window.addEventListener('DOMContentLoaded', function() {
