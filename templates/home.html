@@ -34,7 +34,7 @@
                     <h1>your <span class="popout">ultimate</span> budgeting companion</h1>
                     <br>
                     <br>
-                    <button id="scroll-button" style="display:inline-block;">explore</button>
+                    <button id="scroll-button" style="display:inline-block;">Start Tracking</button>
                 </div>
                 <div id="seconddiv" class="content">
                     <h1><a href="./add_transaction">start tracking your spending</a></h2>
@@ -73,7 +73,7 @@
         const secondDiv = document.getElementById('seconddiv');
 
         scrollButton.addEventListener('click', () => {
-            secondDiv.scrollIntoView({ behavior: 'smooth' });
+            window.location.href = './add_transaction';
         });
 
         window.addEventListener('DOMContentLoaded', function() {
