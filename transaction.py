@@ -10,7 +10,7 @@ class Transaction:
     - date (datetime.date) : the data of the transaction
 
     """
-    def __init__(self, net, vendor, date):
+    def __init__(self, net, vendor, date, category="Uncategorized"):
         """
         The constructor creates a transaction object with a net value,
         an associated vendor, and a justifying description
@@ -24,6 +24,7 @@ class Transaction:
         self.net = net
         self.vendor = vendor
         self.date = date
+        self.category = category
 
     def __str__(self):
         return (
@@ -36,9 +37,7 @@ class Transaction:
         )
 
     def csv(self):
-        return (
-            f"{self.net},{self.vendor},{self.date.year},{self.date.month},{self.date.day}"
-        )
+        return f"{self.net},{self.vendor},{self.date.year},{self.date.month},{self.date.day},{self.category}"
 
     def __lt__(self, other):
         if self.date.year < other.date.year:

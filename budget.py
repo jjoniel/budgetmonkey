@@ -9,6 +9,7 @@ from cryptography.fernet import Fernet
 
 # local imports
 from transaction import Transaction
+from collections import defaultdict
 
 KEY = b'ZfTpJ-ExWHiDFA_BNxi1kLKv97u_DLlE6fGLwqD1OXQ='
 f = Fernet(KEY)
@@ -36,13 +37,14 @@ def add_transaction():
 
 @app.route("/add_transaction", methods=["POST"])
 def process_transaction():
-    u_entities = request.form.getlist("vendor[]")
-    dates = request.form.getlist("date[]")
-    total_prices = request.form.getlist("total_price[]")
+    u_entities  = request.form.getlist("vendor[]")
+    dates       = request.form.getlist("date[]")
+    total_prices= request.form.getlist("total_price[]")
+    categories  = request.form.getlist("category[]")
     for i in range(len(dates)):
-        add_expense(dates[i], u_entities[i], total_prices[i])
+        add_expense(dates[i], u_entities[i], total_prices[i], categories[i])
     save_all_info()
-    return render_template("receipt.html", 
+    return render_template("receipt.html",
                            transactions=u_list,
                            success=True)
 
@@ -51,6 +53,46 @@ def view_receipts():
     return render_template("receipt.html", 
                            transactions=u_list,
                            success=False)
+
+@app.route("/analytics", methods=["GET"])
+def analytics():
+    if not u_list:
+        return render_template("analytics.html", no_data=True)
+
+    # ----- totals -----
+    total_spending = sum(t.net for t in u_list)
+
+    # ----- by category -----
+    category_spending = defaultdict(float)
+    for t in u_list:
+        category_spending[t.category] += t.net
+
+    # ----- per‑month sums & counts -----
+    monthly_spending = defaultdict(float)
+    monthly_counts   = defaultdict(int)
+    for t in u_list:
+        key = t.date.strftime("%Y-%m")
+        monthly_spending[key] += t.net
+        monthly_counts[key]   += 1                       # NEW
+
+    sorted_months   = sorted(monthly_spending.keys())
+    monthly_vals    = [monthly_spending[m] for m in sorted_months]
+    monthly_txn_cts = [monthly_counts[m]   for m in sorted_months]  # NEW
+
+    # ----- top vendors -----
+    vendor_spending = defaultdict(float)
+    for t in u_list:
+        vendor_spending[t.vendor] += t.net
+    top_vendors = sorted(vendor_spending.items(), key=lambda x: x[1], reverse=True)[:5]
+
+    return render_template("analytics.html",
+                           no_data=False,
+                           total_spending=total_spending,
+                           category_spending=dict(category_spending),
+                           sorted_months=sorted_months,
+                           monthly_spending_list=monthly_vals,
+                           monthly_counts_list=monthly_txn_cts,      # NEW
+                           top_vendors=top_vendors)
 
 """
 File IO Functions
@@ -122,18 +164,23 @@ def save_all_info():
 
 def parse_file(user_list):
     for line in user_list:
-        decrypted = f.decrypt(line.strip().encode()).decode()
-        decrypted = decrypted.strip().split(",")
-        u_list.append(Transaction(float(decrypted[0]), decrypted[1], date(int(decrypted[2]), int(decrypted[3]), int(decrypted[4]))))
-
+        fields = f.decrypt(line.strip().encode()).decode().split(",")
+        net,vendor,yyyy,mm,dd = fields[:5]
+        cat = fields[5] if len(fields)==6 else "Uncategorized"
+        u_list.append(Transaction(float(net),vendor,
+                                  date(int(yyyy),int(mm),int(dd)),cat))
 def encrypt_to_file(text):
     return f.encrypt((text.encode())).decode() + "\n"
 
-def add_expense(date, vendor, money):
+def add_expense(date, vendor, money, category):
     vendor = adjust_vendor(vendor.strip())
     entities.add(vendor)
-    u_list.append(Transaction(float(money), vendor, datetime.strptime(date, "%m/%d/%y").date()))
-    print("ADDED EXPENSE: ", u_list[-1].datestr())
+    u_list.append(
+        Transaction(float(money),
+                    vendor,
+                    datetime.strptime(date,"%m/%d/%y").date(),
+                    category.strip() or "Uncategorized")
+    )
 
 if __name__ == "__main__":
     extract_all_info()
