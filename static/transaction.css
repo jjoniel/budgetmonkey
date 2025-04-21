@@ -532,3 +532,7 @@ strong {
     box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
     font-size: 1.1em;
 }
+
+input[type="text"], input[type="number"], input[type="date"] {
+    font-size: 1.2em; /* Adjust the size as needed */
+}
