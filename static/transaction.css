@@ -533,3 +533,35 @@ input.amount,
 input.category {
     font-size: 1.2em !important;
 }
+
+
+#filter-sort-container{
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    gap:0.8em;
+    margin:1.5em auto 2em;
+}
+
+#transactionList{
+    width:fit-content;
+    margin:0 auto;
+    text-align:center;
+}
+
+.transaction{
+    width:100%;
+    max-width:600px;
+}
+
+.transaction h4{
+    margin:0;
+    text-align:center;
+}
+
+#transactionList{
+    display:flex;
+    flex-direction:column;
+    align-items:center;
+    gap:1.25em;
+}
