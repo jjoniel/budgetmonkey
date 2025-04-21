@@ -179,18 +179,12 @@ body {
         border: 5px solid #F9EA9A;
     }
 
-    #submit:hover {
-        color:#F9EA9A;
-        letter-spacing: 0;
-        background-color: #FCA311; 
-        color: #28221f;
-    }
-
+    #submit:hover,
     #add-row-btn:hover {
-        color:#F9EA9A;
+        background-color: #FCA311;
+        color: #000000;          /* Black text */
+        font-weight: bold;       /* Bold text */
         letter-spacing: 0;
-        background-color: #FCA311; 
-        color: #28221f;
     }
 
     .autocomplete-active {
