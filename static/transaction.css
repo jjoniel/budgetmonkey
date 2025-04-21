@@ -565,3 +565,8 @@ input.category {
     align-items:center;
     gap:1.25em;
 }
+
+.trans-date{
+    color:#28221FFF;     /* choose any dark shade you like */
+    font-weight:600;   /* optional—but adds a little emphasis */
+}

@@ -57,12 +57,16 @@
             <!-- Transactions List -->
             <div id="transactionList">
                 {% for t in transactions %}
-                <div class="transaction" 
-                     data-vendor="{{ t.vendor }}" 
-                     data-date="{{ t.date.isoformat() }}" 
-                     data-net="{{ t.net }}">
-                    <h4>{{ t.datestr() }}</h4>
-                </div>
+                    <div class="transaction"
+                         data-vendor="{{ t.vendor }}"
+                         data-date="{{ t.date.isoformat() }}"
+                         data-net="{{ t.net }}">
+
+                        <h4>
+                            <span class="trans-date">{{ t.date }}</span>
+                            &nbsp; ${{ "%.2f"|format(t.net) }}  {{ t.vendor }}
+                        </h4>
+                    </div>
                 {% endfor %}
             </div>
         </div>
