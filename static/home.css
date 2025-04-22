@@ -111,7 +111,7 @@ h1 {
 }
 
 .popout {
-    color: #684E32;
+    color: #FCA311;
     transition: letter-spacing 1s;
 }
 
@@ -206,9 +206,13 @@ a:hover {
 
 .about-section p {
     font-family: 'DM Sans', sans-serif;
-    font-weight: 200;
+    font-weight: 100;
     font-size: 1.6em;
     line-height: 2;
     margin-bottom: 20px;
     color: #F9EA9A;
+}
+
+strong {
+   font-weight: 900pt;
 }

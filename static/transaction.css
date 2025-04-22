@@ -176,14 +176,20 @@ body {
 
 @media (hover: hover) and (pointer: fine) {
     hr:hover{
-        border: 5px solid #F9EA9A;
+        border: 5px solid #FCA311;
     }
 
-    #submit:hover,
-    #add-row-btn:hover {
+    #submit:hover {
         background-color: #FCA311;
         color: #000000;          /* Black text */
-        font-weight: bold;       /* Bold text */
+        font-weight: 800pt;
+        letter-spacing: 0;
+    }
+    
+    #add-row-btn:hover {
+        background-color: #F9EA9A;
+        color: #000000;          /* Black text */
+        font-weight: 800pt;
         letter-spacing: 0;
     }
 
@@ -273,7 +279,7 @@ input {
     font-family: 'DM Mono', monospace;
     transition: letter-spacing .1s;
     cursor: text;
-    color: #28221f;
+    color: #EFEBCE;
     caret-color: #F9EA9A;
 }
 
@@ -288,6 +294,7 @@ th {
     background-color: #28221f;
     -webkit-font-smoothing: antialiased;
     font-weight: 400;
+    font-size: 1.2em
 }
 
 tr {
@@ -529,7 +536,7 @@ strong {
 
 input.date,
 input.vendor,
-input.amount,
+input.total-price,
 input.category {
     font-size: 1.2em !important;
 }
